@@ -5,6 +5,39 @@ function main() {
     var deck = document.querySelector('x-deck');
     readURL();
 
+    deck.addEventListener('shufflestart', function(ev) {
+        var index = deck.getCardIndex(deck.getSelectedCard());
+        saveURL(index);
+    }, false);
+
+
+    window.addEventListener('keyup', function(ev) {
+
+        if(ev.keyCode === 37) {
+            deck.shufflePrev();
+        } else if(ev.keyCode === 39) {
+            deck.shuffleNext();
+        } else if(ev.keyCode == 70) {
+            toggleFullScreen();
+        }
+        
+    }, false);
+
+
+    window.addEventListener('click', function(ev) {
+
+        var x = ev.clientX;
+        var width = window.innerWidth;
+
+        if(x > width / 2) {
+            deck.shuffleNext();
+        } else {
+            deck.shufflePrev();
+        }
+
+    }, false);
+
+    // ~~~
     
     function saveURL(index) {
         window.location.hash = index;
@@ -43,23 +76,5 @@ function main() {
         }
 
     }
-
-
-    deck.addEventListener('shufflestart', function(ev) {
-        var index = deck.getCardIndex(deck.getSelectedCard());
-        saveURL(index);
-    }, false);
-
-    window.addEventListener('keyup', function(ev) {
-
-        if(ev.keyCode === 37) {
-            deck.shufflePrev();
-        } else if(ev.keyCode === 39) {
-            deck.shuffleNext();
-        } else if(ev.keyCode == 70) {
-            toggleFullScreen();
-        }
-        
-    }, false);
 
 }
