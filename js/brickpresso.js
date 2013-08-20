@@ -19,7 +19,7 @@ function main() {
     item.addEventListener('click', toggleFullScreen);
     menu.appendChild(item);
     document.body.appendChild(menu);
-    document.body.setAttribute('contextmenu', 'fsmenu'); 
+    document.body.setAttribute('contextmenu', 'fsmenu');
 
 
     window.addEventListener('keyup', function(ev) {
@@ -39,6 +39,11 @@ function main() {
 
 
     window.addEventListener('click', function(ev) {
+
+        // Ignore if it's not left click
+        if(ev.button !== 0) {
+            return;
+        }
 
         var x = ev.clientX;
         var width = window.innerWidth;
