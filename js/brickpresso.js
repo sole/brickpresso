@@ -10,13 +10,27 @@ function main() {
         saveURL(index);
     }, false);
 
+    // Add contextual menu. HTML5 is the <3
+    var menu = document.createElement('menu');
+    var item = document.createElement('menuitem');
+    menu.setAttribute('id', 'fsmenu');
+    menu.setAttribute('type', 'context');
+    item.setAttribute('label', 'Fullscreen');
+    item.addEventListener('click', toggleFullScreen);
+    menu.appendChild(item);
+    document.body.appendChild(menu);
+    document.body.setAttribute('contextmenu', 'fsmenu'); 
+
 
     window.addEventListener('keyup', function(ev) {
 
+        // Left arrow
         if(ev.keyCode === 37) {
             deck.shufflePrev();
+        // Right arrow
         } else if(ev.keyCode === 39) {
             deck.shuffleNext();
+        // F key
         } else if(ev.keyCode == 70) {
             toggleFullScreen();
         }
