@@ -1,0 +1,86 @@
+@import url(fonts.css);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html, body {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+body {
+    color: #666;
+    background: #e6e4dd url(bg-sandstone.jpg);
+    font-family: OpenSansRegular, sans-serif;
+    font-size: 2rem;
+}
+
+body:after {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    width: 153px;
+    height: 41px;
+    background: url(tab-2.png);
+    content: '';
+}
+
+a {
+    color: #00d;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+strong {
+    font-family: OpenSansSemibold;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+
+h1 {
+    text-transform: uppercase;
+    color: #333;
+}
+
+    h1 code {
+        text-transform: none;
+    }
+
+h1 { font-size: 200%; }
+h2 { font-size: 150%; }
+
+p {
+    margin: 1rem 0;
+}
+
+img {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    height: auto;
+    width: 20rem;
+}
+
+x-card {
+    padding: 2rem;
+    opacity: 1;
+    transition: all 1s;
+}
+
+x-card[selected] {
+    opacity: 1;
+}
+
+x-card[leaving] {
+    opacity: 0;
+}
