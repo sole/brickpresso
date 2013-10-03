@@ -1,76 +1,79 @@
-window.addEventListener('DOMComponentsLoaded', main, false);
+var Brickpresso = Brickpresso || (function() {
 
-function main() {
+    var deck;
 
-    var deck = document.querySelector('x-deck');
-    readURL();
+    function init() {
 
-    deck.addEventListener('shufflestart', function(ev) {
-        var index = deck.getCardIndex(deck.getSelectedCard());
-        saveURL(index);
-    }, false);
+        deck = document.querySelector('x-deck');
+        readURL();
 
-    // Add contextual menu. HTML5 is the <3
-    var menu = document.createElement('menu');
-    var item = document.createElement('menuitem');
-    menu.setAttribute('id', 'fsmenu');
-    menu.setAttribute('type', 'context');
-    item.setAttribute('label', 'Fullscreen');
-    item.addEventListener('click', toggleFullScreen);
-    menu.appendChild(item);
-    document.body.appendChild(menu);
-    document.body.setAttribute('contextmenu', 'fsmenu');
+        deck.addEventListener('shufflestart', function(ev) {
+            var index = deck.getCardIndex(deck.getSelectedCard());
+            saveURL(index);
+        }, false);
+
+        // Add contextual menu. HTML5 is the <3
+        var menu = document.createElement('menu');
+        var item = document.createElement('menuitem');
+        menu.setAttribute('id', 'fsmenu');
+        menu.setAttribute('type', 'context');
+        item.setAttribute('label', 'Fullscreen');
+        item.addEventListener('click', toggleFullScreen);
+        menu.appendChild(item);
+        document.body.appendChild(menu);
+        document.body.setAttribute('contextmenu', 'fsmenu');
 
 
-    // Mini hack for css backgrounds
-    var covered = document.querySelectorAll('x-card[class=cover]');
-    for(var i = 0; i < covered.length; i++) {
-        var card = covered[i];
-        card.style.backgroundImage = 'url(' + card.getAttribute('data-background') + ')';
+        // Mini hack for css backgrounds
+        var covered = document.querySelectorAll('x-card[class=cover]');
+        for(var i = 0; i < covered.length; i++) {
+            var card = covered[i];
+            card.style.backgroundImage = 'url(' + card.getAttribute('data-background') + ')';
+        }
+
+
+        window.addEventListener('keyup', function(ev) {
+
+            // Left arrow
+            if(ev.keyCode === 37) {
+                deck.shufflePrev();
+            // Right arrow
+            } else if(ev.keyCode === 39) {
+                deck.shuffleNext();
+            // F key
+            } else if(ev.keyCode == 70) {
+                toggleFullScreen();
+            }
+            
+        }, false);
+
+
+        window.addEventListener('click', function(ev) {
+
+            // Ignore if it's not left click
+            if(ev.button !== 0) {
+                return;
+            }
+
+            var x = ev.clientX;
+            var width = window.innerWidth;
+
+            if(x > width / 2) {
+                deck.shuffleNext();
+            } else {
+                deck.shufflePrev();
+            }
+
+        }, false);
+
     }
 
 
-    window.addEventListener('keyup', function(ev) {
-
-        // Left arrow
-        if(ev.keyCode === 37) {
-            deck.shufflePrev();
-        // Right arrow
-        } else if(ev.keyCode === 39) {
-            deck.shuffleNext();
-        // F key
-        } else if(ev.keyCode == 70) {
-            toggleFullScreen();
-        }
-        
-    }, false);
-
-
-    window.addEventListener('click', function(ev) {
-
-        // Ignore if it's not left click
-        if(ev.button !== 0) {
-            return;
-        }
-
-        var x = ev.clientX;
-        var width = window.innerWidth;
-
-        if(x > width / 2) {
-            deck.shuffleNext();
-        } else {
-            deck.shufflePrev();
-        }
-
-    }, false);
-
-    // ~~~
-    
     function saveURL(index) {
         window.location.hash = index;
     }
 
-    
+
     function readURL() {
         if(window.location.hash) {
             var hash = window.location.hash;
@@ -80,7 +83,7 @@ function main() {
         }
     }
 
-    
+
     function toggleFullScreen() {
 
         var requestFS = document.body.requestFullScreen || 
@@ -104,4 +107,8 @@ function main() {
 
     }
 
-}
+    return {
+        init: init
+    };
+
+})();

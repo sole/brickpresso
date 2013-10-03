@@ -61,6 +61,11 @@
     <script src="js/libs/x-tag/core.js"></script>
     <script src="js/libs/x-tag/deck.js"></script>
     <script src="js/brickpresso.js"></script>
+    <script>
+      window.addEventListener('DOMComponentsLoaded', function() {
+        Brickpresso.init();
+      }, false);
+    </script>
   </body>
 </html>
 
