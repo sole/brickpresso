@@ -22,6 +22,14 @@ function main() {
     document.body.setAttribute('contextmenu', 'fsmenu');
 
 
+    // Mini hack for css backgrounds
+    var covered = document.querySelectorAll('x-card[class=cover]');
+    for(var i = 0; i < covered.length; i++) {
+        var card = covered[i];
+        card.style.backgroundImage = 'url(' + card.getAttribute('data-background') + ')';
+    }
+
+
     window.addEventListener('keyup', function(ev) {
 
         // Left arrow
