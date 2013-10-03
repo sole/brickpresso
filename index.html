@@ -1,71 +1,87 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>brickpresso</title>
-    <link rel="stylesheet" type="text/css" href="css/x-tag/deck.css"/>
-    <link rel="stylesheet" type="text/css" href="css/style.css"/>
-  </head>
-  <body>
+    <head>
+        <meta charset="utf-8" />
+        <title>brickpresso</title>
+        <!-- Base styles -->
+        <link rel="stylesheet" type="text/css" href="css/x-tag/deck.css" media="screen" />
+        <!-- Specific styles for a given presentation -->
+        <link rel="stylesheet" type="text/css" href="css/style.css" media="all" />
+        <!-- Styles for printing -->
+        <link rel="stylesheet" type="text/css" href="css/print.css" media="print" />
+    </head>
+    <body>
 
-    <x-deck transition-type="uncoverLeft">
+        <x-deck transition-type="uncoverLeft">
 
-      <x-card>
-        <header>
-          <h1>Brickpresso</h1>
-          <h2>A simple preso tool,<br/>built with <a href="https://github.com/mozilla/brick">Mozilla Brick</a>.</h2>
-        </header>
-        <img src="images/logo.svg">
-      </x-card>
+            <x-card>
+                <header>
+                    <h1>Brickpresso</h1>
+                    <h2>A simple preso tool,<br/>built with <a href="https://github.com/mozilla/brick">Mozilla Brick</a>.</h2>
+                </header>
+                <img src="images/logo.svg">
+            </x-card>
 
-      <x-card>
-        <header>
-          <h1>Slides are <code>x-card</code>s</h1>
-        </header>
-        With optional <code>header</code> elements.
-      </x-card>
-
-
-      <x-card>
-        <header>
-          <h1>Slide navigation</h1>
-        </header>
-        <p>Right arrow, left arrow.</p>
-        <p>Or: tap on the right half, tap on the left half.</p>
-      </x-card>
-
-      <x-card>
-        <header>
-          <h1>Fullscreen support</h1>
-        </header>
-        Using Fullscreen API. Press 'F' to toggle.
-      </x-card>
+            <x-card>
+                <header>
+                    <h1>Slides are <code>x-card</code>s</h1>
+                </header>
+                With optional <code>header</code> elements.
+            </x-card>
 
 
-      <x-card>
-        <header>
-          <h1>Stores slide # in <code>window.hash</code></h1>
-        </header>
-        Reloading slides is safe.
-      </x-card>
+            <x-card>
+                <header>
+                    <h1>Slide navigation</h1>
+                </header>
+                <p>Right arrow, left arrow.</p>
+                <p>Or: tap on the right half, tap on the left half.</p>
+            </x-card>
 
-      <x-card>
-        <header>
-          <h1>Source code</h1>
-        </header>
-        <code><a href="https://github.com/sole/brickpresso">https://github.com/sole/brickpresso</a></code>
-      </x-card>
+            <x-card>
+                <header>
+                    <h1>Fullscreen support</h1>
+                </header>
+                Using Fullscreen API. Press 'F' to toggle.
+            </x-card>
 
-    </x-deck>
 
-    <script src="js/libs/x-tag/core.js"></script>
-    <script src="js/libs/x-tag/deck.js"></script>
-    <script src="js/brickpresso.js"></script>
-    <script>
-      window.addEventListener('DOMComponentsLoaded', function() {
-        Brickpresso.init();
-      }, false);
-    </script>
-  </body>
+            <x-card>
+                <header>
+                    <h1>Stores slide # in <code>window.hash</code></h1>
+                </header>
+                Reloading slides is safe.
+            </x-card>
+
+
+            <x-card>
+                <header>
+                    <h1>It can be printed!</h1>
+                    <h2>Want to generate a PDF?</h2>
+                </header>
+                <p>Simply use your browser's <em>Print</em> or <em>Print as PDF...</em> functionalities.</p>
+                <p>For best results, ensure you configure the output to display no headers, and print in landscape (closer to the window aspect ratio).</p>
+                <p>If you use background images, set it to print backgrounds too!</p>
+            </x-card>
+
+
+            <x-card>
+                <header>
+                    <h1>Source code</h1>
+                </header>
+                <code><a href="https://github.com/sole/brickpresso">https://github.com/sole/brickpresso</a></code>
+            </x-card>
+
+        </x-deck>
+
+        <script src="js/libs/x-tag/core.js"></script>
+        <script src="js/libs/x-tag/deck.js"></script>
+        <script src="js/brickpresso.js"></script>
+        <script>
+            window.addEventListener('DOMComponentsLoaded', function() {
+                Brickpresso.init();
+            }, false);
+        </script>
+    </body>
 </html>
 
