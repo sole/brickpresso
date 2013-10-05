@@ -1,0 +1,23 @@
+{
+	"name": "brickpresso",
+	"description": "A simple preso tool built with Mozilla Brick",
+	"version": "0.0.1",
+	"main": "js/brickpresso.js",
+	"homepage": "https://github.com/sole/brickpresso",
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/sole/brickpresso.git"
+	},
+	"bugs": {
+		"url": "https://github.com/sole/brickpresso/issues"
+	},
+	"licenses": [
+	{
+		"type": "MPL2",
+		"url": "https://github.com/sole/brickpresso/blob/master/LICENSE"
+	}
+	],
+	"keywords": [
+		"slides, presentation"
+	]
+}
