@@ -34,14 +34,16 @@ var Brickpresso = Brickpresso || (function() {
 
         window.addEventListener('keyup', function(ev) {
 
+            var keyCode = ev.keyCode;
+
             // Left arrow
-            if(ev.keyCode === 37) {
+            if(keyCode === 37 || keyCode === 33) {
                 deck.shufflePrev();
             // Right arrow
-            } else if(ev.keyCode === 39) {
+            } else if(keyCode === 39 || keyCode === 34) {
                 deck.shuffleNext();
             // F key
-            } else if(ev.keyCode == 70) {
+            } else if(keyCode === 70) {
                 toggleFullScreen();
             }
             
