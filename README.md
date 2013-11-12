@@ -18,6 +18,12 @@ Clone this repo, and edit ````index.html````. Depending on your tastes, edit ```
 
 Enjoy!
 
+## Using with a clicker
+
+If you have a clicker and it acts like a keyboard sending page UP and DOWN events, you can use it with this tool.
+
+Tested with a Kensington something something green laser clicker (thanks, @afabbro!)
+
 ### Mozilla theme
 
 There's an ````examples```` folder with just one example (yay!). It is a [mozilla themed](examples/mozilla) version of the demo. See it [online](http://sole.github.io/brickpresso/examples/mozilla/).
